@@ -46,7 +46,8 @@ A modelagem adotada segue o princípio do *Lakehouse*, utilizando uma abordagem 
 *   **`dim_filme`**: `tmdb_id` (Integer - PK), `titulo_brasil` (String), `classificacao_etaria` (String), `nota_media` (Decimal), `votos` (Integer), `popularidade` (Decimal), `orcamento_usd` (Decimal), `generos` (String), `data_lancamento` (Date).
 *   **`gold_features_bilheteria`**: `tmdb_id` (Integer - FK), `data_exibicao` (Date), `dia_semana` (String), `publico` (Integer), `faturamento_estimado_r$` (Decimal - Métrica gerada multiplicando o público por um ticket médio de R$ 20,00).
 
-> [INSERIR PRINT AQUI: Screenshot do Data Explorer / Unity Catalog do Databricks mostrando os schemas]
+<img width="1049" height="647" alt="image" src="https://github.com/user-attachments/assets/73832876-18d5-4f83-9052-c89d8f470797" />
+
 
 ### 4. Pipeline de Dados (Etapa 4.4)
 
