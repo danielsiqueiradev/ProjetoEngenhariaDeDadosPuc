@@ -80,8 +80,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 <img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
 
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
-[<img width="50%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
-](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a6686fda15c0b0601784c1615d58?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=fe25c31b~faturamento_por_ano)
+<img width="50%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
 
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
 <img width="50%" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
