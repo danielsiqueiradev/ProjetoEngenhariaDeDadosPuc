@@ -23,9 +23,8 @@ A fonte primária e majoritária dos dados é a Agência Nacional do Cinema (Anc
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
-6. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
-8. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 
 ### 2. Coleta e Carga dos Dados (Etapa 4.2)
 
@@ -90,28 +89,13 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
 <img width="50%"  height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
   
-6. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
-<img width="1128" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
+6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
+<img width="50%" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
 
-   
 11. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
-12. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
+<img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
 
 
-Ano Atual:
-
-
-
-Faturamento Estimado por Ano (2021-2025)
-
-
-Top 10 Filmes com Maiores Públicos // Estimativa de Renda por Gênero
-
-[<img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d60f181c6d84f30445513ca887?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=e5e6a390~bar_renda_por_genero)
-
-Distribuição de Público por Estado
-[<img width="100%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
-](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d9d46013c2b908259b455bb993?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=9eb2bded~pizza_publico_uf)
 ### 7. Autoavaliação
 
 O projeto cumpriu integralmente seu objetivo de entregar um pipeline de dados funcional estruturado na nuvem, simulando um ambiente corporativo real. A Arquitetura Medalhão mostrou-se essencial para refinar dados brutos até a entrega de métricas confiáveis para tomada de decisão. 
