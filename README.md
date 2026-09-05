@@ -83,6 +83,7 @@ Faturamento Estimado por Ano (2021-2025)
 <img width="100%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
 
 Top 10 Filmes com Maiores Públicos
+
 Estimativa de Renda por Gênero
 <img width="50%" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/5efeefcf-441a-40c2-aacd-cda15216c1f4" /><img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />
 
