@@ -77,7 +77,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Performance de Produto (Painéis: Top 10 Públicos, Filmes que mais renderam, Relação Nota x Público):** O ranking confirmou a concentração de mercado em grandes blockbusters. O cruzamento das métricas da API (Nota Média e Votos) com o público real da Ancine permitiu avaliar se o sucesso de crítica reflete diretamente no sucesso de caixa nacional.
 
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
-[<img width="4" height="5" alt="image" src="https://github.com/user-attachments/assets/9ad53aea-8cba-43c0-b08f-75792a70299e" />](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d6b38e1315838060f65644b028?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=98b700aa~top_10_bilheterias)
+<img width="1128" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/247b0b02-a7b4-4f20-b7e8-7eceb21fbf61" />
 
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
 <img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" /><img width="50%" height="330" alt="Público e Faturamento por Mês - 2026 (1)" src="https://github.com/user-attachments/assets/e547c175-352c-4ea8-ad6b-8a329ea6677e" />
@@ -87,7 +87,8 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 ](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a6686fda15c0b0601784c1615d58?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=fe25c31b~faturamento_por_ano)
 
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
-https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4e2d7101c7999d553f5c4b0de7a?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=fd505d76~linha_publico_mensal
+<img width="1128" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
+
 
 7. **Relação entre Nota IMDB x Público:** A percepção de qualidade (Nota Média) tem correlação direta com o sucesso de bilheteria?
 8. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
