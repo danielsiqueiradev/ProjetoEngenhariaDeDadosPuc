@@ -23,10 +23,9 @@ A fonte primária e majoritária dos dados é a Agência Nacional do Cinema (Anc
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
-6. **Filmes que mais renderam:** Quais obras geraram a maior arrecadação financeira absoluta?
-7. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
-8. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
-9. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
+6. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
+8. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 
 ### 2. Coleta e Carga dos Dados (Etapa 4.2)
 
@@ -91,10 +90,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
 <img width="50%"  height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
   
-6. **Filmes que mais renderam:** Quais obras geraram a maior arrecadação financeira absoluta?
-<img width="50%"  height="1068" alt="Top 10 Filmes por Receita Estimada (R$)" src="https://github.com/user-attachments/assets/8de369ee-95f0-40f7-a01c-eab6486edee2" />
-
-7. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+6. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
 <img width="1128" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
 
    
