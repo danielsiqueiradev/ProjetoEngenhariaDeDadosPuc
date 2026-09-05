@@ -70,8 +70,8 @@ Durante a exploração dos dados, detectou-se uma falha de completude crítica: 
 Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído respondendo às perguntas mapeadas:
 
 *   **Evolução e Sazonalidade (Painéis: Ano Atual, Faturamento x Ano, Bilheteria por Mês):** O faturamento histórico expôs a retomada pós-crise no recorte 2021-2025, enquanto a quebra mensal revelou picos evidentes de consumo em Janeiro e Julho, fortemente atrelados às férias escolares.
-*   **Comportamento do Consumidor (Painéis: Dias da Semana, População que mais consome, Top 10 Gêneros):** Identificou-se os dias de maior tração nas bilheterias. A análise demográfica cruzada com a censura provou que o mercado é sustentado pelo público familiar (classificações Livre e 12 anos).
-*   **Performance de Produto (Painéis: Top 10 Públicos, Filmes que mais renderam, Relação Nota x Público):** O ranking confirmou a concentração de mercado em grandes blockbusters. O cruzamento das métricas da API (Nota Média e Votos) com o público real da Ancine permitiu avaliar se o sucesso de crítica reflete diretamente no sucesso de caixa nacional.
+*   **Comportamento do Consumidor e Geografia (Painéis: Dias da Semana, Top 10 Estados, Top 10 Gêneros):** Identificou-se os dias de maior tração nas bilheterias e os gêneros cinematográficos mais rentáveis. A análise geográfica revelou uma concentração maciça do público nos estados do Sudeste, liderada amplamente por São Paulo (SP) e Rio de Janeiro (RJ), mapeando onde a demanda de exibição está consolidada.
+*   **Performance de Produto (Painel: Top 10 Públicos):** O ranking confirmou a concentração de mercado em grandes blockbusters e franquias (como Divertida Mente 2 e Homem-Aranha), evidenciando as obras que efetivamente tracionaram o volume absoluto de ingressos no período analisado.
 
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
 <img width="50%" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/247b0b02-a7b4-4f20-b7e8-7eceb21fbf61" />
