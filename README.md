@@ -87,13 +87,10 @@ Top 10 Públicos:
 
 <img width="1128" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/5efeefcf-441a-40c2-aacd-cda15216c1f4" />
 
-Estimatima de renda por gênero:
+Estimatima de renda por gênero de filme:                                          Distribuição de Público por Estado
 
-<img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />
+<img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" /><img width="50%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
 
-Distribuição de Público por Estado
-
-<img width="50%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
 
 
 ### 7. Autoavaliação
