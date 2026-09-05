@@ -75,7 +75,8 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Comportamento do Consumidor (Painéis: Dias da Semana, População que mais consome, Top 10 Gêneros):** Identificou-se os dias de maior tração nas bilheterias. A análise demográfica cruzada com a censura provou que o mercado é sustentado pelo público familiar (classificações Livre e 12 anos).
 *   **Performance de Produto (Painéis: Top 10 Públicos, Filmes que mais renderam, Relação Nota x Público):** O ranking confirmou a concentração de mercado em grandes blockbusters. O cruzamento das métricas da API (Nota Média e Votos) com o público real da Ancine permitiu avaliar se o sucesso de crítica reflete diretamente no sucesso de caixa nacional.
 
-> [INSERIR PRINTS AQUI: Screenshots de 2 ou 3 gráficos principais gerados no Databricks]
+<img width="1642" height="797" alt="image" src="https://github.com/user-attachments/assets/7abe5e4d-38af-43c2-a083-642575b88150" />
+
 
 ### 7. Autoavaliação
 
