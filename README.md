@@ -87,8 +87,8 @@ Top 10 Filmes com Maiores Públicos // Estimativa de Renda por Gênero
 <img width="50%" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/5efeefcf-441a-40c2-aacd-cda15216c1f4" /><img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />
 
 Distribuição de Público por Estado
-<img width="100%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
-
+[<img width="100%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
+](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d9d46013c2b908259b455bb993?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=9eb2bded~pizza_publico_uf)
 ### 7. Autoavaliação
 
 O projeto cumpriu integralmente seu objetivo de entregar um pipeline de dados funcional estruturado na nuvem, simulando um ambiente corporativo real. A Arquitetura Medalhão mostrou-se essencial para refinar dados brutos até a entrega de métricas confiáveis para tomada de decisão. 
