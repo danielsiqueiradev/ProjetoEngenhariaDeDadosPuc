@@ -5,6 +5,50 @@
 **Objetivo:** 
 O presente MVP (Produto Mínimo Viável) tem como objetivo construir um pipeline de dados analítico de ponta a ponta na nuvem. O foco é processar dados brutos do mercado cinematográfico brasileiro, cruzá-los com metadados de filmes, e estruturá-los para responder a perguntas estratégicas de negócio sobre faturamento, sazonalidade e comportamento do público, culminando em um painel de inteligência de mercado executivo.
 
+flowchart LR
+    subgraph Fontes["Fontes de Dados"]
+        A[Ancine<br>Dados Históricos CSV]
+        B[TMDB API<br>Metadados JSON]
+    end
+
+    subgraph Ingestao["Ingestion (DBFS)"]
+        C[Volumes<br>Landing Zone]
+    end
+
+    subgraph Lakehouse["Databricks Data Lakehouse"]
+        subgraph Bronze["Camada Bronze"]
+            D[(bronze_ancine)]
+            E[(bronze_tmdb)]
+        end
+
+        subgraph Silver["Camada Silver"]
+            F[(dim_filme)]
+            G[(fato_exibicao)]
+            H[(dim_localidade)]
+        end
+
+        subgraph Gold["Camada Gold"]
+            I[(gold_features_bilheteria)]
+        end
+        
+        D --> G
+        D --> H
+        E --> F
+        F --> I
+        G --> I
+        H --> I
+    end
+
+    subgraph BI["Analytics & Dashboards"]
+        J[Lakeview Dashboards<br>KPIs de Negócio]
+    end
+
+    A --> C
+    B --> C
+    C --> D
+    C --> E
+    I --> J
+
 <img width="1024" height="454" alt="Sem título" src="https://github.com/user-attachments/assets/ab253683-3a1b-4ea5-8868-49d4c32207c5" />
 
 ---
