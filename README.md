@@ -5,7 +5,7 @@
 **Objetivo:** 
 O presente MVP (Produto Mínimo Viável) tem como objetivo construir um pipeline de dados analítico de ponta a ponta na nuvem. O foco é processar dados brutos do mercado cinematográfico brasileiro, cruzá-los com metadados de filmes, e estruturá-los para responder a perguntas estratégicas de negócio sobre faturamento, sazonalidade e comportamento do público, culminando em um painel de inteligência de mercado executivo.
 
-<img width="1024" height="454" alt="image" src="https://github.com/user-attachments/assets/c44cd779-83fd-4722-b93c-75da28f06dcf" />
+<img width="1024" height="454" alt="image" src="https://github.com/user-attachments/assets/d0e227a7-b5f5-41e6-9632-e9c82c2acb63" />
 
 ---
 
