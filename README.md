@@ -23,8 +23,7 @@ O presente MVP (Produto Mínimo Viável) tem como objetivo construir um pipeline
 **Contexto de Negócio:**
 O mercado de exibição cinematográfica precisa entender onde estão seus gargalos operacionais e onde a receita é efetivamente gerada. Este projeto analisa dados de bilheteria e exibições no Brasil, cruzando o volume de público com metadados dos filmes. 
 
-**Estrutura dos Dados Brutos e Licença:**
-A fonte primária e majoritária dos dados é a Agência Nacional do Cinema (Ancine), sob a licença de Dados Abertos do Governo Federal. Para o enriquecimento do catálogo, utilizou-se a API do TMDB (The Movie Database), que permite uso não comercial.
+**Estrutura dos Dados Brutos e Licença:** A fonte primária e majoritária dos dados é a Agência Nacional do Cinema (Ancine), sob a licença de Dados Abertos do Governo Federal. Para o enriquecimento do catálogo, utilizou-se a API do TMDB (The Movie Database) para metadados gerais de produção, e a API do OMDb (The Open Movie Database) para a extração de notas e consensos da crítica especializada (Metacritic e Rotten Tomatoes). Ambas as APIs permitem o uso não comercial para fins acadêmicos.
 
 **Perguntas de Negócio (Mapeadas para os Dashboards):**
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
