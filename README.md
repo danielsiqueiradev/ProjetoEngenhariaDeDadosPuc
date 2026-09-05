@@ -76,10 +76,12 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Performance de Produto (Painéis: Top 10 Públicos, Filmes que mais renderam, Relação Nota x Público):** O ranking confirmou a concentração de mercado em grandes blockbusters. O cruzamento das métricas da API (Nota Média e Votos) com o público real da Ancine permitiu avaliar se o sucesso de crítica reflete diretamente no sucesso de caixa nacional.
 
 Ano Atual:
+
 <img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" /><img width="50%" height="330" alt="Público e Faturamento por Mês - 2026 (1)" src="https://github.com/user-attachments/assets/e547c175-352c-4ea8-ad6b-8a329ea6677e" />
 
 
 Top 10 Públicos:
+
 <img width="1128" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/5efeefcf-441a-40c2-aacd-cda15216c1f4" />
 
 
