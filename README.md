@@ -58,7 +58,7 @@ O processo de ETL (Extração, Transformação e Carga) foi centralizado em *Not
 2.  **Transform:** Na camada **Silver**, ocorreu a remoção de duplicatas, tipagem correta de colunas (datas e decimais) e tratamento de inconsistências. Na camada **Gold**, as tabelas foram unidas (`JOIN`) pelo `tmdb_id` e enriquecidas com agregações de negócio (cálculo de faturamento estimado e extração de dias da semana).
 3.  **Load:** As tabelas finais foram salvas fisicamente em formato Delta (`.format("delta").saveAsTable(...)`), garantindo transações ACID e performance nativa.
 
-> [INSERIR PRINT AQUI: Screenshot do Databricks provando que as tabelas estão persistidas]
+<img width="1759" height="661" alt="image" src="https://github.com/user-attachments/assets/9cc3b321-7093-4741-a783-402982281041" />
 
 ### 5. Qualidade de Dados (Etapa 4.5)
 
