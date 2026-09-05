@@ -39,6 +39,9 @@ O mercado de exibição cinematográfica precisa entender onde estão seus garga
 A ingestão de dados envolveu um trabalho prévio de *Data Wrangling* para garantir a viabilidade analítica antes da subida para o Databricks:
 1. **Extração Primária:** Download da base histórica completa de bilheteria pública da Ancine (de 2014 até o presente).
 2. **Filtro Temporal e Limpeza:** Para manter a relevância do mercado recente, os dados anteriores a 2021 foram excluídos, estabelecendo um recorte de 5 anos de bilheteria. Colunas sem valor analítico foram removidas para otimizar o processamento.
+<img width="1805" height="576" alt="image" src="https://github.com/user-attachments/assets/4b4d2cdc-bf50-41ec-9f5f-eef0b4cb78d0" />
+
+
 3. **Consolidação:** Os arquivos foram concatenados em um único arquivo CSV e passaram por correção de *encoding* para UTF-8, evitando erros em caracteres especiais dos títulos.
 4. **Enriquecimento via API:** Foi construído um *script* de conexão com a API do TMDB para buscar metadados específicos de cada obra, incorporando ao *dataset* os seguintes campos: `TITULO_BRASIL`, `TMDB_ID`, `POPULARIDADE`, `NOTA_MEDIA`, `VOTOS`, `DATA_LANCAMENTO`, `ORCAMENTO_USD` e `GENEROS`.
 
