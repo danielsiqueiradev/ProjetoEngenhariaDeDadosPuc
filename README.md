@@ -77,7 +77,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 <img width="50%" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/247b0b02-a7b4-4f20-b7e8-7eceb21fbf61" />
 
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
-<img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" /><img width="50%" height="330" alt="Público e Faturamento por Mês - 2026 (1)" src="https://github.com/user-attachments/assets/e547c175-352c-4ea8-ad6b-8a329ea6677e" />
+<img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
 
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
 [<img width="50%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
@@ -92,7 +92,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 <img width="50%" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
 
-11. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
+7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 <img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
 
 
