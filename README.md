@@ -89,13 +89,15 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 <img width="50%" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
 
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
-<img width="1128" height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
+<img width="50%"  height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
   
 6. **Filmes que mais renderam:** Quais obras geraram a maior arrecadação financeira absoluta?
-<img width="75%" height="1068" alt="Top 10 Filmes por Receita Estimada (R$)" src="https://github.com/user-attachments/assets/8de369ee-95f0-40f7-a01c-eab6486edee2" />
+<img width="50%"  height="1068" alt="Top 10 Filmes por Receita Estimada (R$)" src="https://github.com/user-attachments/assets/8de369ee-95f0-40f7-a01c-eab6486edee2" />
 
+7. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+<img width="1128" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
 
-10. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+   
 11. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 12. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 
