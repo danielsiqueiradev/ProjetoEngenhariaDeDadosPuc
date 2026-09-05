@@ -27,6 +27,7 @@ A fonte primária e majoritária dos dados é a Agência Nacional do Cinema (Anc
 7. **Filmes que mais renderam:** Quais obras geraram a maior arrecadação financeira absoluta?
 8. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
 9. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
+10. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 
 ### 2. Coleta e Carga dos Dados (Etapa 4.2)
 
