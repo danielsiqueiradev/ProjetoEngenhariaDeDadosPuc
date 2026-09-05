@@ -9,6 +9,15 @@ O presente MVP (Produto Mínimo Viável) tem como objetivo construir um pipeline
 
 ---
 
+## Sumário
+* [1. Contexto de Negócios e Perguntas](#1-contexto-de-negócios-e-perguntas-etapas-2-e-41)
+* [2. Coleta e Carga dos Dados](#2-coleta-e-carga-dos-dados-etapa-42)
+* [3. Modelagem e Catálogo de Dados](#3-modelagem-e-catálogo-de-dados-etapa-43)
+* [4. Pipeline de Dados](#4-pipeline-de-dados-etapa-44)
+* [5. Qualidade de Dados](#5-qualidade-de-dados-etapa-45)
+* [6. Análise de Dados](#6-análise-de-dados-etapa-45)
+* [7. Autoavaliação](#7-autoavaliação)
+
 ### 1. Contexto de Negócios e Perguntas (Etapas 2 e 4.1)
 
 **Contexto de Negócio:**
