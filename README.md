@@ -76,9 +76,23 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Comportamento do Consumidor (Painéis: Dias da Semana, População que mais consome, Top 10 Gêneros):** Identificou-se os dias de maior tração nas bilheterias. A análise demográfica cruzada com a censura provou que o mercado é sustentado pelo público familiar (classificações Livre e 12 anos).
 *   **Performance de Produto (Painéis: Top 10 Públicos, Filmes que mais renderam, Relação Nota x Público):** O ranking confirmou a concentração de mercado em grandes blockbusters. O cruzamento das métricas da API (Nota Média e Votos) com o público real da Ancine permitiu avaliar se o sucesso de crítica reflete diretamente no sucesso de caixa nacional.
 
+1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
+<img width="4" height="5" alt="image" src="https://github.com/user-attachments/assets/9ad53aea-8cba-43c0-b08f-75792a70299e" />
+2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
+<img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" /><img width="50%" height="330" alt="Público e Faturamento por Mês - 2026 (1)" src="https://github.com/user-attachments/assets/e547c175-352c-4ea8-ad6b-8a329ea6677e" />
+4. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
+5. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
+6. **Relação entre Nota IMDB x Público:** A percepção de qualidade (Nota Média) tem correlação direta com o sucesso de bilheteria?
+7. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
+8. **Filmes que mais renderam:** Quais obras geraram a maior arrecadação financeira absoluta?
+9. **População que mais consome cinema no Brasil:** Qual é o perfil de consumo e impacto financeiro baseado na classificação etária (censura)?
+10. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
+11. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
+
+
 Ano Atual:
 
-<img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" /><img width="50%" height="330" alt="Público e Faturamento por Mês - 2026 (1)" src="https://github.com/user-attachments/assets/e547c175-352c-4ea8-ad6b-8a329ea6677e" />
+
 
 Faturamento Estimado por Ano (2021-2025)
 [<img width="100%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
@@ -86,7 +100,7 @@ Faturamento Estimado por Ano (2021-2025)
 
 Top 10 Filmes com Maiores Públicos // Estimativa de Renda por Gênero
 
-[<img width="50%" height="708" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/5efeefcf-441a-40c2-aacd-cda15216c1f4" />](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d6b38e1315838060f65644b028?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=98b700aa~top_10_bilheterias)[<img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d60f181c6d84f30445513ca887?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=e5e6a390~bar_renda_por_genero)
+[<img width="50%" height="708" alt="Estimativa de Renda por Gênero" src="https://github.com/user-attachments/assets/fe5c8df5-c073-4051-9fcc-8442a5a79ee8" />](https://dbc-03fa44b5-cd28.cloud.databricks.com/sql/dashboardsv3/01f1a4d60f181c6d84f30445513ca887?o=7474654721394849&utm_campaign=copy_widget_link&fullscreenWidget=e5e6a390~bar_renda_por_genero)
 
 Distribuição de Público por Estado
 [<img width="100%" height="708" alt="Distribuição de Público por Estado" src="https://github.com/user-attachments/assets/8f6d8718-aea9-4393-93c3-8304070c4e47" />
