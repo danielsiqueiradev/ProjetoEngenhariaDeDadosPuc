@@ -34,24 +34,25 @@ O mercado de exibição cinematográfica precisa entender onde estão seus garga
 6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 
-### 2. Coleta e Carga dos Dados (Etapa 4.2)
+## 2. Coleta e Carga dos Dados (Etapa 4.2)
 
-A ingestão de dados envolveu um trabalho prévio de *Data Wrangling* para garantir a viabilidade analítica antes da subida para o Databricks:
-1. **Extração Primária:** Download da base histórica completa de bilheteria pública da Ancine (de 2014 até o presente).
-2. **Filtro Temporal e Limpeza:** Para manter a relevância do mercado recente, os dados anteriores a 2021 foram excluídos, estabelecendo um recorte de 5 anos de bilheteria. Colunas sem valor analítico foram removidas para otimizar o processamento.
-<img width="1805" height="576" alt="image" src="https://github.com/user-attachments/assets/4b4d2cdc-bf50-41ec-9f5f-eef0b4cb78d0" />
-3. **Consolidação:** Os arquivos foram concatenados em um único arquivo CSV e passaram por correção de *encoding* para UTF-8, evitando erros em caracteres especiais dos títulos.
-4. **Enriquecimento via API:** Foi construído um *script* de conexão com a API do TMDB para buscar metadados específicos de cada obra, incorporando ao *dataset* os seguintes campos: `TITULO_BRASIL`, `TMDB_ID`, `POPULARIDADE`, `NOTA_MEDIA`, `VOTOS`, `DATA_LANCAMENTO`, `ORCAMENTO_USD` e `GENEROS`.
+A ingestão de dados exigiu um trabalho prévio estruturado para garantir a viabilidade analítica antes da subida para o ecossistema do Databricks. As fontes mesclam dados governamentais abertos e integrações com plataformas de entretenimento.
 
-Após esse tratamento inicial, o CSV consolidado e enriquecido foi carregado diretamente no DBFS/Volumes do Databricks, representando a camada **Bronze** (landing zone).
+*(Mantenha a imagem do portal da Ancine aqui)*
 
-### Pré-processamento e Data Wrangling (Base Ancine)
-Para viabilizar a ingestão na nuvem e otimizar o custo de processamento, foi desenvolvido o script [`src/JuntarArquivosCSV.py`](src/JuntarArquivosCSV.py) responsável pelo tratamento inicial (ETL pré-ingestão) das bases históricas do governo. As principais operações realizadas incluem:
+### 2.1. Extração e Integrações
+*   **Dados Governamentais (Ancine):** Download da base histórica completa de bilheteria diária pública informada pelas distribuidoras.
+*   **Enriquecimento via APIs:** Desenvolvimento de scripts de extração para cruzar os títulos da Ancine com a API do TMDB (buscando metadados como popularidade, orçamento e gêneros) e com a API do OMDb (extraindo índices de avaliação do Metacritic e Rotten Tomatoes).
 
-* **Otimização de Memória e Filtro Temporal:** Leitura restrita aos anos de 2021 a 2026 e seleção apenas das colunas com valor analítico direto (títulos, datas, localidade e métricas de público), descartando metadados governamentais não utilizados.
-* **Governança e Qualidade de Dados:** Tratamento de valores nulos na coluna `PUBLICO`, forçando a conversão segura para números inteiros.
-* **Regra de Negócio (Corte de Relevância):** Agrupamento prévio do público total por `TITULO_ORIGINAL` para aplicar uma regra de corte, mantendo no pipeline analítico apenas os filmes que alcançaram um público acumulado superior a 5.000 espectadores.
-* **Padronização de Encoding:** A leitura e a exportação do arquivo final consolidado foram forçadas para `UTF-8`, mitigando falhas de *charmap* e garantindo a integridade de caracteres especiais na camada Bronze.
+### 2.2. Pré-processamento e Data Wrangling
+Para viabilizar a ingestão na nuvem e otimizar custos de processamento, foi desenvolvido o script [`src/JuntarArquivosCSV.py`](src/JuntarArquivosCSV.py), responsável pelo tratamento inicial (ETL pré-ingestão) da base da Ancine. As operações incluem:
+*   **Otimização de Memória e Filtro Temporal:** Leitura restrita aos anos de 2021 a 2026 e seleção apenas das colunas com valor analítico direto (títulos, datas, localidade e métricas de público).
+*   **Governança e Qualidade de Dados:** Tratamento de valores nulos na coluna `PUBLICO`, forçando a conversão segura para números inteiros.
+*   **Regra de Negócio (Corte de Relevância):** Agrupamento prévio do público total por `TITULO_ORIGINAL`, mantendo no pipeline analítico apenas os filmes com público acumulado superior a 5.000 espectadores.
+*   **Padronização de Encoding:** Exportação do arquivo consolidado forçada para `UTF-8`, mitigando falhas de *charmap* em caracteres especiais.
+
+### 2.3. Carga no Data Lakehouse (DBFS)
+Após o tratamento local e a extração dos metadados, o arquivo CSV unificado e os arquivos JSON das APIs foram carregados diretamente no armazenamento nativo do Databricks (DBFS/Volumes). Esses arquivos brutos representam a **Camada Bronze** (*landing zone*), a partir da qual as transformações em Spark são iniciadas.
 
 ### 3. Modelagem e Catálogo de Dados (Etapa 4.3)
 
