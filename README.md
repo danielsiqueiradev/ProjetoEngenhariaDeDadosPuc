@@ -38,109 +38,20 @@ O mercado de exibição cinematográfica precisa entender onde estão seus garga
 
 A ingestão de dados envolveu um trabalho prévio de *Data Wrangling* para garantir a viabilidade analítica antes da subida para o Databricks:
 1. **Extração Primária:** Download da base histórica completa de bilheteria pública da Ancine (de 2014 até o presente).
-   import pandas as pd
-import logging
-from pathlib import Path
-from typing import List
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-def consolidate_ancine_data(source_directory: str, target_years: List[str], output_filepath: str) -> None:
-    
-    source_path = Path(source_directory)
-    if not source_path.exists():
-        logging.error(f"Diretório não encontrado: {source_directory}")
-        return
-
-    all_csv_files = list(source_path.glob("*.csv"))
-    filtered_files = [
-        f for f in all_csv_files 
-        if any(year in f.name for year in target_years) and "dados_brutos" not in f.name
-    ]
-    
-    if not filtered_files:
-        logging.warning("Nenhum arquivo correspondente aos anos alvo foi encontrado.")
-        return
-        
-    logging.info(f"Foram encontrados {len(filtered_files)} arquivos para processamento.")
-
-    # A tesoura passou de novo: Focando só no que interessa pra não inchar o arquivo!
-    target_columns = [
-        'DATA_EXIBICAO', 
-        'TITULO_ORIGINAL', 
-        'TITULO_BRASIL', 
-        'PAIS_OBRA', 
-        'PUBLICO', 
-        'RAZAO_SOCIAL_DISTRIBUIDORA',
-        'NOME_SALA',
-        'MUNICIPIO_SALA_COMPLEXO',
-        'UF_SALA_COMPLEXO',
-    ]
-
-    dataframes_list = []
-
-    for filepath in filtered_files:
-        logging.info(f"Lendo arquivo: {filepath.name}")
-        try:
-            # Lendo em UTF-8 pra evitar erro de charmap no Windows
-            df_temp = pd.read_csv(filepath, sep=';', encoding='utf-8', dtype=str, usecols=target_columns)
-            dataframes_list.append(df_temp)
-        except Exception as e:
-            logging.error(f"Falha ao processar {filepath.name}. Erro: {e}")
-
-    if dataframes_list:
-        logging.info("Concatenando os dados...")
-        df_raw = pd.concat(dataframes_list, ignore_index=True)
-        
-        # 1. Limpeza de nulos no público
-        df_raw = df_raw.dropna(subset=['PUBLICO'])
-        df_raw['PUBLICO'] = pd.to_numeric(df_raw['PUBLICO'], errors='coerce')
-        df_raw = df_raw.dropna(subset=['PUBLICO'])
-        df_raw['PUBLICO'] = df_raw['PUBLICO'].astype(int)
-        
-        # 2. Regra de Negócio: Filtro de 5k no geral
-        logging.info("Calculando o público total por filme...")
-        total_por_filme = df_raw.groupby('TITULO_ORIGINAL')['PUBLICO'].sum().reset_index()
-        filmes_sucesso = total_por_filme[total_por_filme['PUBLICO'] >= 5000]['TITULO_ORIGINAL']
-        
-        df_raw = df_raw[df_raw['TITULO_ORIGINAL'].isin(filmes_sucesso)]
-        
-        # 3. Agrupando e consolidando a NÍVEL NACIONAL (sem as salas, pra ficar leve)
-        logging.info("Agrupando os dados e consolidando a bilheteria nacionalmente...")
-        df_agrupado = df_raw.groupby([
-            'DATA_EXIBICAO', 
-            'TITULO_ORIGINAL', 
-            'TITULO_BRASIL', 
-            'PAIS_OBRA', 
-            'RAZAO_SOCIAL_DISTRIBUIDORA',
-            'NOME_SALA',
-            'MUNICIPIO_SALA_COMPLEXO',
-            'UF_SALA_COMPLEXO',
-        ])['PUBLICO'].sum().reset_index()
-        
-        logging.info("Exportando dados consolidados...")
-        df_agrupado.to_csv(output_filepath, index=False, sep=';', encoding='utf-8-sig')
-        
-        logging.info(f"Processo finalizado com sucesso! Arquivo gerado com apenas {df_agrupado.shape[0]} linhas.")
-
-if __name__ == "__main__":
-    SOURCE_DIR = r"C:\Users\Daniel Siqueira\Documents\Puc"
-    TARGET_YEARS = ['2021', '2022', '2023', '2024', '2025', '2026']
-    OUTPUT_FILE = r"C:\Users\Daniel Siqueira\Documents\Puc\ancine_dados_brutos_2021_2026.csv"
-    
-    consolidate_ancine_data(
-        source_directory=SOURCE_DIR,
-        target_years=TARGET_YEARS,
-        output_filepath=OUTPUT_FILE
-    )
-3. **Filtro Temporal e Limpeza:** Para manter a relevância do mercado recente, os dados anteriores a 2021 foram excluídos, estabelecendo um recorte de 5 anos de bilheteria. Colunas sem valor analítico foram removidas para otimizar o processamento.
+2. **Filtro Temporal e Limpeza:** Para manter a relevância do mercado recente, os dados anteriores a 2021 foram excluídos, estabelecendo um recorte de 5 anos de bilheteria. Colunas sem valor analítico foram removidas para otimizar o processamento.
 <img width="1805" height="576" alt="image" src="https://github.com/user-attachments/assets/4b4d2cdc-bf50-41ec-9f5f-eef0b4cb78d0" />
-
-
-4. **Consolidação:** Os arquivos foram concatenados em um único arquivo CSV e passaram por correção de *encoding* para UTF-8, evitando erros em caracteres especiais dos títulos.
-5. **Enriquecimento via API:** Foi construído um *script* de conexão com a API do TMDB para buscar metadados específicos de cada obra, incorporando ao *dataset* os seguintes campos: `TITULO_BRASIL`, `TMDB_ID`, `POPULARIDADE`, `NOTA_MEDIA`, `VOTOS`, `DATA_LANCAMENTO`, `ORCAMENTO_USD` e `GENEROS`.
+3. **Consolidação:** Os arquivos foram concatenados em um único arquivo CSV e passaram por correção de *encoding* para UTF-8, evitando erros em caracteres especiais dos títulos.
+4. **Enriquecimento via API:** Foi construído um *script* de conexão com a API do TMDB para buscar metadados específicos de cada obra, incorporando ao *dataset* os seguintes campos: `TITULO_BRASIL`, `TMDB_ID`, `POPULARIDADE`, `NOTA_MEDIA`, `VOTOS`, `DATA_LANCAMENTO`, `ORCAMENTO_USD` e `GENEROS`.
 
 Após esse tratamento inicial, o CSV consolidado e enriquecido foi carregado diretamente no DBFS/Volumes do Databricks, representando a camada **Bronze** (landing zone).
+
+### Pré-processamento e Data Wrangling (Base Ancine)
+Para viabilizar a ingestão na nuvem e otimizar o custo de processamento, foi desenvolvido o script [`src/JuntarArquivosCSV.py`](src/JuntarArquivosCSV.py) responsável pelo tratamento inicial (ETL pré-ingestão) das bases históricas do governo. As principais operações realizadas incluem:
+
+* **Otimização de Memória e Filtro Temporal:** Leitura restrita aos anos de 2021 a 2026 e seleção apenas das colunas com valor analítico direto (títulos, datas, localidade e métricas de público), descartando metadados governamentais não utilizados.
+* **Governança e Qualidade de Dados:** Tratamento de valores nulos na coluna `PUBLICO`, forçando a conversão segura para números inteiros.
+* **Regra de Negócio (Corte de Relevância):** Agrupamento prévio do público total por `TITULO_ORIGINAL` para aplicar uma regra de corte, mantendo no pipeline analítico apenas os filmes que alcançaram um público acumulado superior a 5.000 espectadores.
+* **Padronização de Encoding:** A leitura e a exportação do arquivo final consolidado foram forçadas para `UTF-8`, mitigando falhas de *charmap* e garantindo a integridade de caracteres especiais na camada Bronze.
 
 ### 3. Modelagem e Catálogo de Dados (Etapa 4.3)
 
