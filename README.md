@@ -38,7 +38,7 @@ O mercado de exibição cinematográfica precisa entender onde estão seus garga
 
 A ingestão de dados exigiu um trabalho prévio estruturado para garantir a viabilidade analítica antes da subida para o ecossistema do Databricks. As fontes mesclam dados governamentais abertos e integrações com plataformas de entretenimento.
 
-*(Mantenha a imagem do portal da Ancine aqui)*
+<img width="1784" height="516" alt="image" src="https://github.com/user-attachments/assets/3b7cb134-52e2-4a96-8914-e6c606873deb" />
 
 ### 2.1. Extração e Integrações
 *   **Dados Governamentais (Ancine):** Download da base histórica completa de bilheteria diária pública informada pelas distribuidoras.
