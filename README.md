@@ -650,7 +650,7 @@ ORDER BY mes_exibicao;
 <img width="1261" height="494" alt="Público por Dia da Semana (1)" src="https://github.com/user-attachments/assets/73405d08-c356-4e0d-a835-9debbb83205e" />
 
 <details>
-<summary><b>🐍 Ver o código: "Como a sazonalidade afeta o desempenho das salas ao longo dos anos?"</b></summary>
+<summary><b>🐍 Ver o código: "Quais dias da semana concentram o maior volume de vendas de ingressos"</b></summary>
 
 ```
 sql
