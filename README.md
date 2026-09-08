@@ -524,7 +524,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Performance de Produto (Painel: Top 10 Públicos):** O ranking confirmou a concentração de mercado em grandes blockbusters e franquias (como Divertida Mente 2 e Homem-Aranha), evidenciando as obras que efetivamente tracionaram o volume absoluto de ingressos no período analisado.
 
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
-<img width="1261" height="566" alt="Top 10 Filmes com Maiores Públicos (1)" src="https://github.com/user-attachments/assets/aa413f2e-4c8a-48c4-ac4f-2b7653fe1c81" />
+<img width="50%" height="566" alt="Top 10 Filmes com Maiores Públicos (1)" src="https://github.com/user-attachments/assets/aa413f2e-4c8a-48c4-ac4f-2b7653fe1c81" />
 
 
 <details>
@@ -636,7 +636,7 @@ ORDER BY mes_exibicao;
 </details>
 
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
-<img width="50%"  height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
+<img width="1261" height="494" alt="Público por Dia da Semana (1)" src="https://github.com/user-attachments/assets/73405d08-c356-4e0d-a835-9debbb83205e" />
 
 <details>
 <summary><b>🐍 Ver o código: "Como a sazonalidade afeta o desempenho das salas ao longo dos anos?"</b></summary>
