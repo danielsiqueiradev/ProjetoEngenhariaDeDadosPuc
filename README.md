@@ -226,6 +226,8 @@ print("✅ Base Bronze recriada com UTF-8: Adeus, texto quebrado!")
 ```
 </details>
 
+<br>
+<br>
 ### 3. Modelagem e Catálogo de Dados (Etapa 4.3)
 
 A modelagem adotada segue o princípio do *Lakehouse*, utilizando uma abordagem de *Star Schema* adaptada para o Delta Lake:
@@ -508,6 +510,8 @@ df_gold_bilheteria.write \
 print("✅ Camada Gold processada com sucesso: Tabela 'gold_features_bilheteria' pronta para os Dashboards!")
 ```
 </details>
+<br>
+<br>
 
 ### 5. Qualidade de Dados (Etapa 4.5)
 
