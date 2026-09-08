@@ -526,20 +526,164 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
 <img width="50%" alt="Top 10 Filmes com Maiores Públicos" src="https://github.com/user-attachments/assets/247b0b02-a7b4-4f20-b7e8-7eceb21fbf61" />
 
+<details>
+<summary><b>🐍 Ver o código: "Quais são os 10 filmes que atraíram as maiores audiências no Brasil?"</b></summary>
+
+```
+sql
+USE CATALOG `dbacademy`;
+USE SCHEMA `default`;
+
+SELECT
+    f.titulo_brasil,
+    SUM(b.publico) AS total_publico,
+    SUM(b.publico) * 20 AS faturamento_estimado_r
+FROM dbacademy.default.gold_features_bilheteria b
+JOIN dbacademy.default.dim_filme f ON b.tmdb_id = f.tmdb_id
+WHERE f.titulo_brasil IS NOT NULL
+GROUP BY f.titulo_brasil
+ORDER BY total_publico DESC
+LIMIT 10;
+```
+</details>
+
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
 <img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
+
+<details>
+<summary><b>🐍 Ver o código: "Qual é o desempenho financeiro e de público mês a mês no ano corrente?"</b></summary>
+
+```
+sql
+SELECT
+  mes_exibicao,
+  CASE mes_exibicao
+    WHEN 1 THEN 'Jan'
+    WHEN 2 THEN 'Fev'
+    WHEN 3 THEN 'Mar'
+    WHEN 4 THEN 'Abr'
+    WHEN 5 THEN 'Mai'
+    WHEN 6 THEN 'Jun'
+    WHEN 7 THEN 'Jul'
+    WHEN 8 THEN 'Ago'
+    WHEN 9 THEN 'Set'
+    WHEN 10 THEN 'Out'
+    WHEN 11 THEN 'Nov'
+    WHEN 12 THEN 'Dez'
+  END AS mes_nome,
+  SUM(publico) AS total_publico,
+  SUM(publico) * 20 AS `faturamento_estimado_r$`
+FROM
+  dbacademy.default.gold_features_bilheteria
+WHERE
+  ano_exibicao = 2026
+GROUP BY
+  mes_exibicao,
+  mes_nome
+ORDER BY
+  mes_exibicao ASC
+```
+</details>
 
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
 <img width="50%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
 
+<details>
+<summary><b>🐍 Ver o código: "Qual é a evolução histórica do faturamento anual do setor?"</b></summary>
+
+```
+sql
+USE CATALOG `dbacademy`;
+USE SCHEMA `default`;
+
+SELECT
+    ano_exibicao,
+    SUM(publico) AS total_publico,
+    SUM(publico) * 20 AS `faturamento_estimado_r$`
+FROM dbacademy.default.gold_features_bilheteria
+WHERE ano_exibicao BETWEEN 2021 AND 2025
+GROUP BY ano_exibicao
+ORDER BY ano_exibicao ASC;
+```
+</details>
+
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
 <img width="50%" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
 
+<details>
+<summary><b>🐍 Ver o código: "Como a sazonalidade afeta o desempenho das salas ao longo dos anos?"</b></summary>
+
+```
+sql
+USE CATALOG `dbacademy`;
+USE SCHEMA `default`;
+
+SELECT
+    mes_exibicao,
+    CASE mes_exibicao
+        WHEN 1 THEN 'Jan' WHEN 2 THEN 'Fev' WHEN 3 THEN 'Mar'
+        WHEN 4 THEN 'Abr' WHEN 5 THEN 'Mai' WHEN 6 THEN 'Jun'
+        WHEN 7 THEN 'Jul' WHEN 8 THEN 'Ago' WHEN 9 THEN 'Set'
+        WHEN 10 THEN 'Out' WHEN 11 THEN 'Nov' WHEN 12 THEN 'Dez'
+    END AS mes_nome,
+    SUM(publico) AS total_publico,
+    SUM(publico) * 20 AS `estimativa_renda_r$`
+FROM dbacademy.default.gold_features_bilheteria
+GROUP BY mes_exibicao, mes_nome
+ORDER BY mes_exibicao;
+```
+</details>
+
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
 <img width="50%"  height="618" alt="Público por Dia da Semana" src="https://github.com/user-attachments/assets/7e2de5c4-91ba-48b8-9b5a-9e183796ec53" />
+
+<details>
+<summary><b>🐍 Ver o código: "Como a sazonalidade afeta o desempenho das salas ao longo dos anos?"</b></summary>
+
+```
+sql
+USE CATALOG `dbacademy`;
+USE SCHEMA `default`;
+
+SELECT
+    DAYOFWEEK(data_exibicao) AS dia_semana_num,
+    CASE DAYOFWEEK(data_exibicao)
+        WHEN 1 THEN 'Domingo' WHEN 2 THEN 'Segunda' WHEN 3 THEN 'Terça'
+        WHEN 4 THEN 'Quarta'  WHEN 5 THEN 'Quinta'  WHEN 6 THEN 'Sexta' WHEN 7 THEN 'Sábado'
+    END AS dia_da_semana,
+    SUM(publico) AS total_publico,
+    SUM(publico) * 20 AS `estimativa_renda_r$`
+FROM dbacademy.default.gold_features_bilheteria
+GROUP BY dia_semana_num, dia_da_semana
+ORDER BY dia_semana_num;
+```
+</details>
   
 6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 <img width="50%" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
+
+<details>
+<summary><b>🐍 Ver o código: "Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?"</b></summary>
+
+```
+sql
+USE CATALOG `dbacademy`;
+
+USE SCHEMA `default`;
+
+SELECT
+  uf,
+  SUM(publico) AS total_publico,
+  SUM(publico) * 20 AS `estimativa_renda_r$`
+FROM
+  dbacademy.default.gold_features_bilheteria
+GROUP BY
+  uf
+ORDER BY
+  total_publico DESC
+LIMIT 10;
+```
+</details>
 
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 <img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
