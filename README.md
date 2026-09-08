@@ -550,7 +550,8 @@ LIMIT 10;
 </details>
 
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
-<img width="1261" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
+<img width="1261" height="566" alt="Público Mensal — 2026" src="https://github.com/user-attachments/assets/23ce9a2a-d387-4b1a-a4e3-56a12f7002e4" />
+
 
 <details>
 <summary><b>🐍 Ver o código: "Qual é o desempenho financeiro e de público mês a mês no ano corrente?"</b></summary>
