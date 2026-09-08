@@ -208,6 +208,24 @@ if __name__ == "__main__":
 ```
 </details>
 
+<details>
+<summary><b>🐍 Ver o código de Ingestão da Camada Bronze (PySpark)</b></summary>
+<br>
+Após o pré-processamento local e a subida para os <i>Volumes</i> do Databricks, este script PySpark realiza a leitura do CSV garantindo a codificação UTF-8 e salva os dados no formato nativo Delta, consolidando oficialmente a tabela na camada Bronze da arquitetura Medallion.
+
+```python
+df_ancine_1gb = spark.read.format("csv") \
+    .option("header", "true") \
+    .option("sep", ";") \
+    .option("encoding", "UTF-8") \
+    .load("/Volumes/dbacademy/default/puc/ancine_dados_brutos_2021_2026.csv")
+
+# Recriando a tabela Bronze limpa com a acentuação correta
+df_ancine_1gb.write.format("delta").mode("overwrite").saveAsTable("bronze_ancine")
+print("✅ Base Bronze recriada com UTF-8: Adeus, texto quebrado!")
+```
+</details>
+
 ### 3. Modelagem e Catálogo de Dados (Etapa 4.3)
 
 A modelagem adotada segue o princípio do *Lakehouse*, utilizando uma abordagem de *Star Schema* adaptada para o Delta Lake:
