@@ -545,21 +545,22 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 <img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
 
 <details>
-<summary><b>🐍 Ver o código de Agregação da Camada Gold (PySpark)</b></summary>
-<br>
+<summary><b>🐍 Ver o código do Dashboard "Quais são os 10 gêneros cinematográficos mais rentáveis e populares?"</b></summary>
+```sql
 USE CATALOG `dbacademy`;
 USE SCHEMA `default`;
 
 SELECT
     g.nome_genero,
     SUM(f.publico) AS total_publico,
-    SUM(f.publico)* 20 AS `estimativa_renda_r$`
+    SUM(f.publico) * 20 AS `estimativa_renda_r$`
 FROM dbacademy.default.gold_features_bilheteria f
 JOIN dbacademy.default.filme_genero fg ON f.tmdb_id = fg.tmdb_id
 JOIN dbacademy.default.dim_genero g ON fg.id_genero = g.id_genero
 GROUP BY g.nome_genero
 ORDER BY `estimativa_renda_r$` DESC
 LIMIT 10;
+```
 </details>
 
 ### 7. Autoavaliação
