@@ -528,7 +528,6 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
 <img width="1261" height="998" alt="Top 10 Filmes com Maiores Públicos (2)" src="https://github.com/user-attachments/assets/276cc281-0d50-40e9-bddd-a0f4b79b158e" />
 
-
 <details>
 <summary><b>🐍 Ver o código: "Quais são os 10 filmes que atraíram as maiores audiências no Brasil?"</b></summary>
 
@@ -550,8 +549,8 @@ ORDER BY total_publico DESC
 LIMIT 10;
 ```
 </details>
-
-
+<br>
+<br>
 
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
 <img width="1261" height="566" alt="Público Mensal — 2026" src="https://github.com/user-attachments/assets/23ce9a2a-d387-4b1a-a4e3-56a12f7002e4" />
@@ -591,8 +590,8 @@ ORDER BY
   mes_exibicao ASC
 ```
 </details>
-
-
+<br>
+<br>
 
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
 <img width="1261" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
@@ -615,8 +614,8 @@ GROUP BY ano_exibicao
 ORDER BY ano_exibicao ASC;
 ```
 </details>
-
-
+<br>
+<br>
 
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
 <img width="1261" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
@@ -644,8 +643,8 @@ GROUP BY mes_exibicao, mes_nome
 ORDER BY mes_exibicao;
 ```
 </details>
-
-
+<br>
+<br>
 
 5. **Dias da Semana que mais vendem:** Quais dias da semana concentram o maior volume de vendas de ingressos?
 <img width="1261" height="494" alt="Público por Dia da Semana (1)" src="https://github.com/user-attachments/assets/73405d08-c356-4e0d-a835-9debbb83205e" />
@@ -671,8 +670,8 @@ GROUP BY dia_semana_num, dia_da_semana
 ORDER BY dia_semana_num;
 ```
 </details>
-  
-
+<br> 
+<br>
 
 6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
 <img width="1261" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
@@ -699,8 +698,8 @@ ORDER BY
 LIMIT 10;
 ```
 </details>
-
-
+<br>
+<br>
 
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 <img width="1261" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
@@ -725,6 +724,8 @@ ORDER BY `estimativa_renda_r$` DESC
 LIMIT 10;
 ```
 </details>
+<br>
+<br>
 
 ### 7. Autoavaliação
 
