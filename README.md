@@ -529,8 +529,9 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Performance de Produto (Painel: Top 10 Públicos):** O ranking confirmou a concentração de mercado em grandes blockbusters e franquias (como Divertida Mente 2 e Homem-Aranha), evidenciando as obras que efetivamente tracionaram o volume absoluto de ingressos no período analisado.
 
 <br>
----
 <br>
+
+---
 
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
 <img width="1261" height="998" alt="Top 10 Filmes com Maiores Públicos (2)" src="https://github.com/user-attachments/assets/276cc281-0d50-40e9-bddd-a0f4b79b158e" />
