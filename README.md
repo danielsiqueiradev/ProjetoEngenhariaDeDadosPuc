@@ -524,7 +524,7 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 *   **Performance de Produto (Painel: Top 10 Públicos):** O ranking confirmou a concentração de mercado em grandes blockbusters e franquias (como Divertida Mente 2 e Homem-Aranha), evidenciando as obras que efetivamente tracionaram o volume absoluto de ingressos no período analisado.
 
 1. **Top 10 filmes com maiores públicos:** Quais são os 10 filmes que atraíram as maiores audiências no Brasil?
-<img width="50%" height="566" alt="Top 10 Filmes com Maiores Públicos (1)" src="https://github.com/user-attachments/assets/aa413f2e-4c8a-48c4-ac4f-2b7653fe1c81" />
+<img width="1261" height="566" alt="Top 10 Filmes com Maiores Públicos (1)" src="https://github.com/user-attachments/assets/aa413f2e-4c8a-48c4-ac4f-2b7653fe1c81" />
 
 
 <details>
@@ -549,7 +549,7 @@ LIMIT 10;
 </details>
 
 2. **Ano Atual:** Qual é o desempenho financeiro e de público mês a mês no ano corrente?
-<img width="50%" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
+<img width="1261" height="618" alt="Público e Faturamento por Mês - 2026" src="https://github.com/user-attachments/assets/1fb91d39-7f8c-4f8a-8d65-55cf39220f95" />
 
 <details>
 <summary><b>🐍 Ver o código: "Qual é o desempenho financeiro e de público mês a mês no ano corrente?"</b></summary>
@@ -587,7 +587,7 @@ ORDER BY
 </details>
 
 3. **Faturamento x Ano:** Qual é a evolução histórica do faturamento anual do setor?
-<img width="50%" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
+<img width="1261" height="708" alt="Faturamento Estimado por Ano (2021-2025)" src="https://github.com/user-attachments/assets/10292610-51fc-4f3c-8eb8-3d1c0006d2b1" />
 
 <details>
 <summary><b>🐍 Ver o código: "Qual é a evolução histórica do faturamento anual do setor?"</b></summary>
@@ -609,7 +609,7 @@ ORDER BY ano_exibicao ASC;
 </details>
 
 4. **Bilheteria entre os meses (2021 a 2026):** Como a sazonalidade afeta o desempenho das salas ao longo dos anos?
-<img width="50%" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
+<img width="1261" height="528" alt="Bilheteria entre os meses dos anos entre 2021 a 2026" src="https://github.com/user-attachments/assets/91de2d53-b601-4443-8225-5822543fa804" />
 
 <details>
 <summary><b>🐍 Ver o código: "Como a sazonalidade afeta o desempenho das salas ao longo dos anos?"</b></summary>
@@ -661,7 +661,7 @@ ORDER BY dia_semana_num;
 </details>
   
 6. **Distribuição Geográfica:** Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?
-<img width="50%" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
+<img width="1261" height="708" alt="Top 10 Estados - Distribuição de Público" src="https://github.com/user-attachments/assets/ce40bc67-474f-4073-b0fa-8dd58fd4bc63" />
 
 <details>
 <summary><b>🐍 Ver o código: "Como o público consumidor de cinema está distribuído entre os estados brasileiros (UF)?"</b></summary>
@@ -687,7 +687,7 @@ LIMIT 10;
 </details>
 
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
-<img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
+<img width="1261" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
 
 <details>
 <summary><b>🐍 Ver o código: "Quais são os 10 gêneros cinematográficos mais rentáveis e populares?"</b></summary>
