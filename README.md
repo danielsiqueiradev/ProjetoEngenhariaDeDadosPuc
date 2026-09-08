@@ -544,8 +544,11 @@ Através do Databricks Lakeview Dashboards, o objetivo do MVP foi concluído res
 7. **Top 10 Gêneros:** Quais são os 10 gêneros cinematográficos mais rentáveis e populares?
 <img width="50%" height="708" alt="Estimativa de Renda por Gênero (1)" src="https://github.com/user-attachments/assets/f0f2207e-0a74-4d26-ae0e-6ea486c47fa8" />
 
-<summary><b>🐍 Ver o código do Dashboard "Quais são os 10 gêneros cinematográficos mais rentáveis e populares?"</b></summary>
-```sql
+<details>
+<summary><b>🐍 Ver o código: "Quais são os 10 gêneros cinematográficos mais rentáveis e populares?"</b></summary>
+
+```
+sql
 USE CATALOG `dbacademy`;
 USE SCHEMA `default`;
 
@@ -560,6 +563,7 @@ GROUP BY g.nome_genero
 ORDER BY `estimativa_renda_r$` DESC
 LIMIT 10;
 ```
+</details>
 
 ### 7. Autoavaliação
 
