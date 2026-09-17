@@ -1,0 +1,196 @@
+{
+  "datasets": [
+    {
+      "name": "bc728cd5",
+      "displayName": "Regional Ticket Sales and Income Estimates Summary",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "  uf,\n",
+        "  SUM(publico) AS total_publico,\n",
+        "  SUM(publico) * 20 AS `estimativa_renda_r$`\n",
+        "FROM\n",
+        "  dbacademy.default.gold_features_bilheteria\n",
+        "GROUP BY\n",
+        "  uf\n",
+        "ORDER BY\n",
+        "  total_publico DESC\n",
+        "LIMIT 10;"
+      ],
+      "columns": [
+        {
+          "displayName": "percentual_publico",
+          "expression": "SUM(`total_publico`) * 100.0 / SUM(SUM(`total_publico`)) OVER ()"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "9eb2bded",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "table_uf_percent",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "bc728cd5",
+                  "fields": [
+                    {
+                      "name": "uf",
+                      "expression": "`uf`"
+                    },
+                    {
+                      "name": "sum(total_publico)",
+                      "expression": "SUM(`total_publico`)"
+                    },
+                    {
+                      "name": "measure(percentual_publico)",
+                      "expression": "MEASURE(`percentual_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Público por Estado (Valores e %)",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "uf"
+                  },
+                  {
+                    "fieldName": "sum(total_publico)"
+                  },
+                  {
+                    "fieldName": "measure(percentual_publico)",
+                    "format": {
+                      "type": "number-percent",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 1
+                      }
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 8
+          }
+        },
+        {
+          "widget": {
+            "name": "pizza_publico_uf",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "bc728cd5",
+                  "fields": [
+                    {
+                      "name": "sum(total_publico)",
+                      "expression": "SUM(`total_publico`)"
+                    },
+                    {
+                      "name": "uf",
+                      "expression": "`uf`"
+                    },
+                    {
+                      "name": "measure(percentual_publico)",
+                      "expression": "MEASURE(`percentual_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Top 10 Estados - Distribuição de Público",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(total_publico)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "uf",
+                  "legend": {
+                    "hide": false,
+                    "position": "right"
+                  },
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true,
+                  "text": {
+                    "fieldName": "measure(percentual_publico)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 1
+                      }
+                    },
+                    "formatTemplate": "{{ @formatted }}%"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

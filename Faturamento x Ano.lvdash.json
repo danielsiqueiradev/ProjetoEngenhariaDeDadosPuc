@@ -1,0 +1,141 @@
+{
+  "datasets": [
+    {
+      "name": "8f5de767",
+      "displayName": "Annual Movie Attendance and Revenue Estimates",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    ano_exibicao,\n",
+        "    SUM(publico) AS total_publico,\n",
+        "    SUM(publico) * 20 AS `faturamento_estimado_r$`\n",
+        "FROM dbacademy.default.gold_features_bilheteria\n",
+        "WHERE ano_exibicao BETWEEN 2021 AND 2025\n",
+        "GROUP BY ano_exibicao\n",
+        "ORDER BY ano_exibicao ASC;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "fe25c31b",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "faturamento_por_ano",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "8f5de767",
+                  "fields": [
+                    {
+                      "name": "ano_exibicao",
+                      "expression": "`ano_exibicao`"
+                    },
+                    {
+                      "name": "faturamento_estimado_r$",
+                      "expression": "`faturamento_estimado_r$`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Faturamento Estimado por Ano (2021-2025)",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "selectionColor"
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "ano_exibicao",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "faturamento_estimado_r$",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

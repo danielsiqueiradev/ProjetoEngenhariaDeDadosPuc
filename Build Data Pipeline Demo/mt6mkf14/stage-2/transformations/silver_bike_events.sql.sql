@@ -1,0 +1,3 @@
+-- Databricks notebook source
+-- Adicione a query de transformação de silver aqui.
+-- Silver: limpe tipos, derive receita e descarte durações de viagem inválidas.

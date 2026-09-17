@@ -1,0 +1,99 @@
+{
+  "datasets": [
+    {
+      "name": "2e962a61",
+      "displayName": "Top Brazilian Movies Ranked by Audience and IMDb Ratings",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    titulo_brasil,\n",
+        "    MAX(nota_imdb) AS nota_imdb,\n",
+        "    SUM(publico) AS total_publico\n",
+        "FROM dbacademy.default.gold_features_bilheteria\n",
+        "WHERE nota_imdb IS NOT NULL AND nota_imdb > 0\n",
+        "GROUP BY titulo_brasil\n",
+        "ORDER BY total_publico DESC\n",
+        "LIMIT 100;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "f268239c",
+      "displayName": "Dispersão: Nota IMDb x Público",
+      "layout": [
+        {
+          "widget": {
+            "name": "scatter_nota_publico",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2e962a61",
+                  "fields": [
+                    {
+                      "name": "nota_imdb",
+                      "expression": "`nota_imdb`"
+                    },
+                    {
+                      "name": "total_publico",
+                      "expression": "`total_publico`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": {
+                  "value": "Nota IMDb x Público",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "nota_imdb",
+                  "displayName": "Nota IMDb",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "total_publico",
+                  "displayName": "Público Total",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

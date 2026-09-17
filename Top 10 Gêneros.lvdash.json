@@ -1,0 +1,122 @@
+{
+  "datasets": [
+    {
+      "name": "5d4fe80f",
+      "displayName": "Genre Revenue Estimates by Audience Size",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    g.nome_genero,\n",
+        "    SUM(f.publico) AS total_publico,\n",
+        "    SUM(f.publico)* 20 AS `estimativa_renda_r$`\n",
+        "FROM dbacademy.default.gold_features_bilheteria f\n",
+        "JOIN dbacademy.default.filme_genero fg ON f.tmdb_id = fg.tmdb_id\n",
+        "JOIN dbacademy.default.dim_genero g ON fg.id_genero = g.id_genero\n",
+        "GROUP BY g.nome_genero\n",
+        "ORDER BY `estimativa_renda_r$` DESC\n",
+        "LIMIT 10;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "e5e6a390",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "bar_renda_por_genero",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5d4fe80f",
+                  "fields": [
+                    {
+                      "name": "nome_genero",
+                      "expression": "`nome_genero`"
+                    },
+                    {
+                      "name": "sum(estimativa_renda_r$)",
+                      "expression": "SUM(`estimativa_renda_r$`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Estimativa de Renda por Gênero",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "layout": "stack"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "nome_genero",
+                  "displayName": "nome_genero",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(estimativa_renda_r$)",
+                  "displayName": "estimativa_renda_r$",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false
+                  }
+                },
+                "color": {
+                  "fieldName": "nome_genero",
+                  "legend": {
+                    "hide": true
+                  },
+                  "displayName": "nome_genero",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

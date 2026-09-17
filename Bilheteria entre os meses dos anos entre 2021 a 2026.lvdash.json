@@ -1,0 +1,109 @@
+{
+  "datasets": [
+    {
+      "name": "5fa21e0e",
+      "displayName": "Monthly Audience and Revenue Estimates Summary",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    mes_exibicao,\n",
+        "    CASE mes_exibicao\n",
+        "        WHEN 1 THEN 'Jan' WHEN 2 THEN 'Fev' WHEN 3 THEN 'Mar'\n",
+        "        WHEN 4 THEN 'Abr' WHEN 5 THEN 'Mai' WHEN 6 THEN 'Jun'\n",
+        "        WHEN 7 THEN 'Jul' WHEN 8 THEN 'Ago' WHEN 9 THEN 'Set'\n",
+        "        WHEN 10 THEN 'Out' WHEN 11 THEN 'Nov' WHEN 12 THEN 'Dez'\n",
+        "    END AS mes_nome,\n",
+        "    SUM(publico) AS total_publico,\n",
+        "    SUM(publico) * 20 AS `estimativa_renda_r$`\n",
+        "FROM dbacademy.default.gold_features_bilheteria\n",
+        "GROUP BY mes_exibicao, mes_nome\n",
+        "ORDER BY mes_exibicao;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "fd505d76",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "linha_publico_mensal",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "5fa21e0e",
+                  "fields": [
+                    {
+                      "name": "mes_exibicao",
+                      "expression": "`mes_exibicao`"
+                    },
+                    {
+                      "name": "sum(total_publico)",
+                      "expression": "SUM(`total_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "showDescription": false,
+                "title": {
+                  "value": "Bilheteria entre os meses dos anos entre 2021 a 2026",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "lineShape": "smooth"
+              },
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "mes_exibicao",
+                  "displayName": "Mês",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_publico)",
+                  "displayName": "Público Total",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

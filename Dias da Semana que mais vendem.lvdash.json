@@ -1,0 +1,122 @@
+{
+  "datasets": [
+    {
+      "name": "d85e8c4e",
+      "displayName": "Weekly Audience and Revenue Summary by Day",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    DAYOFWEEK(data_exibicao) AS dia_semana_num,\n",
+        "    CASE DAYOFWEEK(data_exibicao)\n",
+        "        WHEN 1 THEN 'Domingo' WHEN 2 THEN 'Segunda' WHEN 3 THEN 'Terça'\n",
+        "        WHEN 4 THEN 'Quarta'  WHEN 5 THEN 'Quinta'  WHEN 6 THEN 'Sexta' WHEN 7 THEN 'Sábado'\n",
+        "    END AS dia_da_semana,\n",
+        "    SUM(publico) AS total_publico,\n",
+        "    SUM(publico) * 20 AS `estimativa_renda_r$`\n",
+        "FROM dbacademy.default.gold_features_bilheteria\n",
+        "GROUP BY dia_semana_num, dia_da_semana\n",
+        "ORDER BY dia_semana_num;"
+      ]
+    }
+  ],
+  "relationshipGraphs": [
+    {
+      "sources": [
+        {
+          "name": "Weekly_Audience_and_Revenue_Summary_by_Day",
+          "datasetName": "d85e8c4e"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "analise",
+      "displayName": "Análise de Vendas",
+      "layout": [
+        {
+          "widget": {
+            "name": "publico_semanal",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "fields": [
+                    {
+                      "name": "Weekly_Audience_and_Revenue_Summary_by_Day__dia_da_semana",
+                      "expression": "`Weekly_Audience_and_Revenue_Summary_by_Day`.`dia_da_semana`"
+                    },
+                    {
+                      "name": "sum(Weekly_Audience_and_Revenue_Summary_by_Day__total_publico)",
+                      "expression": "SUM(`Weekly_Audience_and_Revenue_Summary_by_Day`.`total_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Público por Dia da Semana",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "Weekly_Audience_and_Revenue_Summary_by_Day__dia_da_semana",
+                  "displayName": "dia_da_semana",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(Weekly_Audience_and_Revenue_Summary_by_Day__total_publico)",
+                  "displayName": "total_publico",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "Weekly_Audience_and_Revenue_Summary_by_Day__dia_da_semana",
+                  "displayName": "dia_da_semana",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 7
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

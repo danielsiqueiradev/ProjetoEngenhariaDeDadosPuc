@@ -1,0 +1,2 @@
+-- Databricks notebook source
+-- Adicione a query de agregação gold aqui.

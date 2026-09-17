@@ -1,0 +1,3 @@
+-- Databricks notebook source
+-- Sua tarefa: ingerir todos os eventos brutos de ciclismo
+-- Crie uma tabela de streaming que leia todos os campos da fonte

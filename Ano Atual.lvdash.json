@@ -1,0 +1,134 @@
+{
+  "datasets": [
+    {
+      "name": "eb02bc33",
+      "displayName": "Público e Faturamento Mensal 2026",
+      "queryLines": [
+        "SELECT\n",
+        "  mes_exibicao,\n",
+        "  CASE mes_exibicao\n",
+        "    WHEN 1 THEN 'Jan'\n",
+        "    WHEN 2 THEN 'Fev'\n",
+        "    WHEN 3 THEN 'Mar'\n",
+        "    WHEN 4 THEN 'Abr'\n",
+        "    WHEN 5 THEN 'Mai'\n",
+        "    WHEN 6 THEN 'Jun'\n",
+        "    WHEN 7 THEN 'Jul'\n",
+        "    WHEN 8 THEN 'Ago'\n",
+        "    WHEN 9 THEN 'Set'\n",
+        "    WHEN 10 THEN 'Out'\n",
+        "    WHEN 11 THEN 'Nov'\n",
+        "    WHEN 12 THEN 'Dez'\n",
+        "  END AS mes_nome,\n",
+        "  SUM(publico) AS total_publico,\n",
+        "  SUM(publico) * 20 AS `faturamento_estimado_r$`\n",
+        "FROM\n",
+        "  dbacademy.default.gold_features_bilheteria\n",
+        "WHERE\n",
+        "  ano_exibicao = 2026\n",
+        "GROUP BY\n",
+        "  mes_exibicao,\n",
+        "  mes_nome\n",
+        "ORDER BY\n",
+        "  mes_exibicao ASC"
+      ],
+      "catalog": "dbacademy",
+      "schema": "default"
+    }
+  ],
+  "pages": [
+    {
+      "name": "c23af1e9",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "barras_publico_mensal",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "eb02bc33",
+                  "fields": [
+                    {
+                      "name": "mes_nome",
+                      "expression": "`mes_nome`"
+                    },
+                    {
+                      "name": "sum(total_publico)",
+                      "expression": "SUM(`total_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Público Mensal — 2026",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "mes_nome",
+                  "displayName": "mes_nome",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "custom-order",
+                      "orderedValues": [
+                        "Jan",
+                        "Fev",
+                        "Mar",
+                        "Abr"
+                      ]
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_publico)",
+                  "displayName": "total_publico",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "mes_nome",
+                  "displayName": "mes_nome",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 8
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

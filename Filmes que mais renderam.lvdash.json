@@ -1,0 +1,134 @@
+{
+  "datasets": [
+    {
+      "name": "0d9c4d11",
+      "displayName": "Top Brazilian Movie Earnings and Audience Insights",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    titulo_brasil,\n",
+        "    SUM(publico) AS total_publico,\n",
+        "    SUM(publico) * 20 AS `estimativa_renda_r$`\n",
+        "FROM dbacademy.default.gold_features_bilheteria\n",
+        "GROUP BY titulo_brasil\n",
+        "ORDER BY `estimativa_renda_r$` DESC\n",
+        "LIMIT 10;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "fa708f07",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "top_filmes_receita",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0d9c4d11",
+                  "fields": [
+                    {
+                      "name": "titulo_brasil",
+                      "expression": "`titulo_brasil`"
+                    },
+                    {
+                      "name": "estimativa_renda_r$",
+                      "expression": "`estimativa_renda_r$`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "Top 10 Filmes por Receita Estimada (R$)",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "layout": "stack"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "titulo_brasil",
+                  "axis": {
+                    "hideLabels": false
+                  },
+                  "displayName": "titulo_brasil",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "estimativa_renda_r$",
+                  "axis": {
+                    "labelAngle": 0,
+                    "hideGrid": false,
+                    "hideLabels": false
+                  },
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "compact",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    },
+                    "significantFigures": {
+                      "type": "all"
+                    }
+                  },
+                  "formatTemplate": "{{ @formatted }}",
+                  "displayName": "estimativa_renda_r$",
+                  "scale": {
+                    "type": "quantitative",
+                    "reverse": false
+                  }
+                },
+                "color": {
+                  "fieldName": "titulo_brasil",
+                  "displayName": "titulo_brasil",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 12
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

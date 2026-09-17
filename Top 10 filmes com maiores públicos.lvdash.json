@@ -1,0 +1,123 @@
+{
+  "datasets": [
+    {
+      "name": "4284e4c2",
+      "displayName": "Top Ten Brazilian Movie Audience and Revenue Summary",
+      "queryLines": [
+        "USE CATALOG `dbacademy`;\n",
+        "USE SCHEMA `default`;\n",
+        "\n",
+        "SELECT\n",
+        "    f.titulo_brasil,\n",
+        "    SUM(b.publico) AS total_publico,\n",
+        "    SUM(b.publico) * 20 AS faturamento_estimado_r\n",
+        "FROM dbacademy.default.gold_features_bilheteria b\n",
+        "JOIN dbacademy.default.dim_filme f ON b.tmdb_id = f.tmdb_id\n",
+        "WHERE f.titulo_brasil IS NOT NULL\n",
+        "AND f.titulo_brasil NOT IN (\"HOMEM-ARANHA, SEM VOLTA PARA CASA - A VERSÃO ESTENDIDA\", \"THE CHOSEN - OS ESCOLHIDOS - TEMPORADA 4 - PARTE 3\", \"THE CHOSEN - OS ESCOLHIDOS - TEMPORADA 4 - PARTE 4\"\n",
+        ",\"THE CHOSEN - OS ESCOLHIDOS - TEMPORADA 4 - PARTE 2\", \"THE CHOSEN - OS ESCOLHIDOS - TEMPORADA 4 - PARTE 1\", \"THE CHOSEN: ÚLTIMA CEIA\")\n",
+        "GROUP BY f.titulo_brasil\n",
+        "ORDER BY total_publico DESC\n",
+        "LIMIT 10;"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "98b700aa",
+      "displayName": "Untitled Page",
+      "layout": [
+        {
+          "widget": {
+            "name": "top_10_bilheterias",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "4284e4c2",
+                  "fields": [
+                    {
+                      "name": "titulo_brasil",
+                      "expression": "`titulo_brasil`"
+                    },
+                    {
+                      "name": "sum(total_publico)",
+                      "expression": "SUM(`total_publico`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "showDescription": false,
+                "title": {
+                  "value": "Top 10 Filmes com Maiores Públicos",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "titulo_brasil",
+                  "displayName": "titulo_brasil",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_publico)",
+                  "displayName": "total_publico",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "titulo_brasil",
+                  "legend": {
+                    "hideTitle": true,
+                    "hide": true,
+                    "position": "top"
+                  },
+                  "displayName": "titulo_brasil",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "y-reversed"
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 14
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
